@@ -15,4 +15,6 @@ public class CurrencyService {
     public String getCurrency() {
         return freeCurrencyClient.getCurrecy();
     }
+
+
 }
