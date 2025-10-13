@@ -1,32 +1,11 @@
 package org.example.currencycourseapi.model;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
-@Entity
-public class Currency {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CurrencyDto {
     private String symbol;
     private Double amount;
     private LocalDateTime last_price_update;
-
-    public Currency() {}
-
-    public Currency(String symbol, Double amount) {
-        this.symbol = symbol;
-        this.amount = amount;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getSymbol() {
         return symbol;
