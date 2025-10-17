@@ -56,10 +56,9 @@ public class CurrencyService {
                 }
             }
         }catch(InternalServerException e){
-            throw e;
+            throw new InternalServerException(e.getMessage(), e.getCause());
         }
     }
-
     private CurrencyDto mapToDto(Currency currency){
         return modelMapper.map(currency, CurrencyDto.class);
     }
