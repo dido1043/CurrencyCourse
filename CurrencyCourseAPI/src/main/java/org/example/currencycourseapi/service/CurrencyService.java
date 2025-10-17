@@ -1,6 +1,8 @@
 package org.example.currencycourseapi.service;
 
 import org.example.currencycourseapi.client.FreeCurrencyClient;
+import org.example.currencycourseapi.exception.FeignErrorDecoder;
+import org.example.currencycourseapi.exception.InternalServerException;
 import org.example.currencycourseapi.model.Currency;
 import org.example.currencycourseapi.model.CurrencyDto;
 import org.example.currencycourseapi.repository.CurrencyRepository;
@@ -53,8 +55,8 @@ public class CurrencyService {
                     currencyRepository.save(currency);
                 }
             }
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(InternalServerException e){
+            throw e;
         }
     }
 
