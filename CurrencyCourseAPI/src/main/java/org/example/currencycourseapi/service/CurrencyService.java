@@ -33,7 +33,7 @@ public class CurrencyService {
                 .map(this :: mapToDto)
                 .toList();
 
-        if(currencyList.size() == 0) {
+        if(currencyList.isEmpty()) {
             saveNecessaryData(freeCurrencyClient.getCurrecy());
         }
 
@@ -41,7 +41,7 @@ public class CurrencyService {
     }
 
     public void saveNecessaryData(String data){
-        if(data == null) return;
+
         try{
             JSONObject rootObj = new JSONObject(data);
             JSONObject jsonObject = rootObj.getJSONObject("data");
@@ -50,7 +50,6 @@ public class CurrencyService {
                 if (key.equals("EUR") || key.equals("USD") || key.equals("CNY")){
                     Currency currency = new Currency(key, jsonObject.getDouble(key));
                     currency.setLast_price_update(LocalDateTime.now());
-                    mapToDto(currency);
                     currencyRepository.save(currency);
                 }
             }
