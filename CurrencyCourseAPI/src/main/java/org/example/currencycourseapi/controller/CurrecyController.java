@@ -22,5 +22,6 @@ public class CurrecyController {
     @RequestMapping("/get")
     public ResponseEntity<List<CurrencyDto>> getCurrency(){
         return ResponseEntity.ok(currencyService.getCurrency());
+
     }
 }
