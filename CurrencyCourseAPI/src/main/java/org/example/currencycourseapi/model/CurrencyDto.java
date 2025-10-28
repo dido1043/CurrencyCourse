@@ -30,4 +30,6 @@ public class CurrencyDto {
     public void setLast_price_update(LocalDateTime last_price_update) {
         this.last_price_update = last_price_update;
     }
+
+
 }
