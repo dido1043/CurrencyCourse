@@ -8,9 +8,11 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Bean
+    @Bean("currencyTopic")
     public NewTopic currencyTopic(){
         return TopicBuilder.name("currency_topic")
+                .partitions(3)
+                .replicas(1)
                 .build();
     }
 }
